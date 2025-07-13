@@ -4,8 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Md Ismail Hussain | Mobile App Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
+    :root {
+      --primary-color: #2b6cb0;
+      --secondary-color: #1a202c;
+      --background-color: #f7fafc;
+      --text-color: #4a5568;
+      --heading-color: #1a202c;
+      --card-background: #ffffff;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
     * {
       margin: 0;
       padding: 0;
@@ -13,103 +23,303 @@
       font-family: 'Poppins', sans-serif;
     }
     body {
-      background-color: #f4f4f4;
-      color: #333;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 20px;
     }
     header {
-      background-color: #00B1FF;
-      color: white;
-      padding: 20px;
-      border-radius: 12px;
+      background-color: var(--secondary-color);
+      color: var(--background-color);
+      padding: 60px 20px;
       text-align: center;
-      margin-bottom: 30px;
-    }
-    .section {
+      border-radius: 12px;
       margin-bottom: 40px;
+      box-shadow: var(--shadow);
     }
-    .section h2 {
-      color: #00B1FF;
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
       margin-bottom: 10px;
     }
-    .project, .experience {
-      background-color: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    header p {
+      font-size: 1.2rem;
       margin-bottom: 20px;
     }
-    .contact {
-      text-align: center;
+    .social-links a {
+      color: var(--background-color);
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: color 0.3s ease;
     }
-    a {
-      color: #00B1FF;
+    .social-links a:hover {
+      color: var(--primary-color);
+    }
+    .section {
+      padding: 40px 20px;
+      margin-bottom: 40px;
+      background-color: var(--card-background);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    .section h2 {
+      color: var(--heading-color);
+      font-size: 2.5rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .section h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--primary-color);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      border-radius: 2px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background-color: var(--card-background);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .card h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .card p {
+      margin-bottom: 15px;
+    }
+    .card a {
+      color: var(--primary-color);
       text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .card a:hover {
+      text-decoration: underline;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    .skill-item {
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: var(--primary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+    .timeline-item.left {
+      left: 0;
+      padding-right: 25px;
+    }
+    .timeline-item.right {
+      left: 50%;
+      padding-left: 25px;
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: white;
+      border: 4px solid var(--primary-color);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .timeline-item.right::after {
+      left: -10px;
+    }
+    .timeline-content {
+      padding: 20px;
+      background-color: var(--card-background);
+      position: relative;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: var(--secondary-color);
+      color: var(--background-color);
+      margin-top: 40px;
+      border-radius: 12px 12px 0 0;
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      .timeline::after {
+        left: 20px;
+      }
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      .timeline-item.left, .timeline-item.right {
+        left: 0;
+      }
+      .timeline-item::after {
+        left: 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Md Ismail Hussain</h1>
-    <p>Mobile App Developer | Android | UI/UX | Backend Integration</p>
-    <p>📞 +880 1619 524736 | ✉️ mdismailhusssain@gmail.com</p>
-    <p><a href="https://github.com/Ismail554">GitHub</a> | LinkedIn: ismail554</p>
-  </header>
+  <div class="container">
+    <header>
+      <h1>Md Ismail Hussain</h1>
+      <p>Mobile App Developer | Android | UI/UX | Backend Integration</p>
+      <div class="social-links">
+        <a href="https://github.com/Ismail554" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/ismail554" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:mdismailhusssain@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </header>
 
-  <div class="section">
-    <h2>About Me</h2>
-    <p>I'm a passionate Android developer creating clean, high-performance apps. Focused on user experience, modern UI, and real-world functionality.</p>
+    <section class="section">
+      <h2>About Me</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto;">I'm a passionate Android developer dedicated to creating clean, high-performance applications with a strong focus on user experience, modern UI, and real-world functionality. I thrive on solving complex problems and turning ideas into beautiful, intuitive mobile solutions.</p>
+    </section>
+
+    <section class="section">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <span class="skill-item">Android Development</span>
+        <span class="skill-item">Java</span>
+        <span class="skill-item">Kotlin</span>
+        <span class="skill-item">XML</span>
+        <span class="skill-item">Jetpack Compose</span>
+        <span class="skill-item">UI/UX Design</span>
+        <span class="skill-item">REST APIs</span>
+        <span class="skill-item">Git & GitHub</span>
+        <span class="skill-item">Firebase</span>
+        <span class="skill-item">SQL</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Schedule App</h3>
+          <p>A comprehensive system for teachers to manage class schedules, track attendance, and handle student information efficiently.</p>
+          <a href="https://github.com/Ismail554/ScheduleApp" target="_blank">View on GitHub</a>
+        </div>
+        <div class="card">
+          <h3>Pilotian 2007 Association</h3>
+          <p>An application for member management, event coordination, and seamless payment tracking for the association.</p>
+          <a href="https://pilotian2007.digiins.net" target="_blank">View Live App</a>
+        </div>
+        <div class="card">
+          <h3>Mess Management</h3>
+          <p>A practical tool for shared living spaces to track meals, manage expenses, and access important mess-related information.</p>
+          <a href="https://g.co/gemini/share/aafd191f645e" target="_blank">View Preview</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h3>Innovation IT – Mobile App Developer</h3>
+            <p><strong>March 2025 – Present</strong></p>
+            <p>Building and maintaining high-quality mobile applications for various government and private sector clients.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h3>Excellent Institute – Teacher</h3>
+            <p><strong>October 2024 – February 2025</strong></p>
+            <p>Instructed students in the fundamentals and advanced topics of Android development using Java.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Education</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Feni Computer Institute</h3>
+          <p>Diploma in Computer Science (2020–2025)</p>
+          <p>CGPA: 3.56</p>
+        </div>
+        <div class="card">
+          <h3>Sreepur Eskandaria Alim Madrasa</h3>
+          <p>SSC (Vocational)</p>
+          <p>GPA: 5.00</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Certifications</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Mobile App Development</h3>
+          <p>Innovation IT (2024)</p>
+        </div>
+        <div class="card">
+          <h3>Spoken English</h3>
+          <p>Ghoori Learning (2023)</p>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <div class="section">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Schedule App</h3>
-      <p>Class schedules, attendance, and student management system for teachers. <a href="https://github.com/Ismail554/ScheduleApp">GitHub</a></p>
-    </div>
-    <div class="project">
-      <h3>Pilotian 2007 Association</h3>
-      <p>Member management, event coordination, and payment tracking. <a href="https://pilotian2007.digiins.net">Live App</a></p>
-    </div>
-    <div class="project">
-      <h3>Mess Management</h3>
-      <p>Track meals, expenses, and mess info in shared living. <a href="https://g.co/gemini/share/aafd191f645e">Preview</a></p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Experience</h2>
-    <div class="experience">
-      <strong>Innovation IT – Mobile App Developer</strong><br />
-      March 2025 – Present<br />
-      <em>Building apps for government & private sector clients.</em>
-    </div>
-    <div class="experience">
-      <strong>Excellent Institute – Teacher</strong><br />
-      October 2024 – February 2025<br />
-      <em>Taught Android development using Java.</em>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Education</h2>
-    <p><strong>Feni Computer Institute</strong> – Diploma in Computer Science (2020–2025), CGPA: 3.56</p>
-    <p><strong>Sreepur Eskandaria Alim Madrasa</strong> – SSC (Vocational), GPA: 5.00</p>
-  </div>
-
-  <div class="section">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Mobile App Development – Innovation IT (2024)</li>
-      <li>Spoken English – Ghoori Learning (2023)</li>
-    </ul>
-  </div>
-
-  <div class="section contact">
-    <h2>Contact</h2>
-    <p>Email: mdismailhusssain@gmail.com</p>
-    <p>Phone: +880 1619 524736</p>
-    <p>Location: Fulgazi, Feni, Bangladesh</p>
-  </div>
+  <footer>
+    <p>&copy; 2025 Md Ismail Hussain. All Rights Reserved.</p>
+    <p>Built by Md Ismail Hussain <i class="fas fa-heart" style="color: #e53e3e;"></i> with care
+  </p>
+  </footer>
 </body>
 </html>
